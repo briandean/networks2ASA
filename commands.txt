@@ -1,3 +1,23 @@
 conf t
- object-group networkRAVPN_EXCLUDE_NETWORKS
+object network RAVPN_OBJECT_192-168-0-16-28
+ subnet 192.168.0.16 255.255.255.240
  desc The is the description of the object name
+object-group network RAVPN_EXCLUDE_NETWORKS
+ network-object object RAVPN_OBJECT_192-168-0-16-28
+object network RAVPN_OBJECT_192-168-1-0-24
+ subnet 192.168.1.0 255.255.255.0
+ desc The is the description of the object name
+object-group network RAVPN_EXCLUDE_NETWORKS
+ network-object object RAVPN_OBJECT_192-168-1-0-24
+object network RAVPN_OBJECT_192-168-1-4-32
+ host 192.168.1.4
+ desc The is the description of the object name
+object-group network RAVPN_EXCLUDE_NETWORKS
+ network-object object RAVPN_OBJECT_192-168-1-4-32
+object network RAVPN_OBJECT_192-168-1-5-32
+ host 192.168.1.5
+ desc The is the description of the object name
+object-group network RAVPN_EXCLUDE_NETWORKS
+ network-object object RAVPN_OBJECT_192-168-1-5-32
+object-group network RAVPN_EXCLUDE_NETWORKS
+ desc This is the description of the object group
