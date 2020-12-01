@@ -2,9 +2,10 @@
 from datetime import datetime
 import csv
 import os
-from os import path
+from os import system
 from time import sleep
 from ipaddress import IPv4Network
+import convert2cidr
 
 ##Define variables used throughout the script##
 #File containing list of networks
@@ -20,6 +21,9 @@ asa_object_group_desc = ("This is the description of the object group")
 asa_object_name_prefix = ("RAVPN_OBJECT_")
 #ASA Object description. Might break this out to the csv import in the future
 asa_object_desc = ("The is the description of the object name" ) 
+
+#Run convertocidr.py script
+convert2cidr.convert(networks_file)
 
 #Define list of networks
 networks_list = []
@@ -58,8 +62,6 @@ for x in networks_list:
 
 #Add description to the object group at the end
 open_cmd_file.writelines("object-group network " + asa_object_group_name + "\n desc " + asa_object_group_desc + "\n") 
-
 #Close the command file
 open_cmd_file.close()
-
-
+print("Done!")
