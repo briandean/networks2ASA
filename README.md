@@ -3,7 +3,7 @@ Networks2ASA
 Brian Dean
 brian@briandean.net
 --
-Script to convert a list of networks a file to Cisco ASA Objects and add each of those objects to an object group.
+Script to convert a list of networks a file to Cisco ASA Objects and add each of those objects to an object group. Update the config.ini, add your list of networks one per line, and run networks2asa.py. Output of commands in the commands file.
 
 --Change variables in config.ini to match your requirements.--
 networks_file = Path of file containing source networks networks to add to ASA as objects.
@@ -27,7 +27,7 @@ Example valid networks file contents:
 --
 convert2cidr.py = Script to normalize the formatting of the networks in the networks_file. This will create a backup of the original networks file in the same directory as .bak. You do not need to run this script individually.
 --
-convert2asa.py = Main script to convert list of networks to ASA commands and output to commands file. Will also run the convert2cidr.py.
+networks2asa.py = Main script to convert list of networks to ASA commands and output to commands file. Will also run the convert2cidr.py.
 --
 commands file = File containing final commands to add networks as objects and add those objects to the object group on Cisco ASA
 Example output:

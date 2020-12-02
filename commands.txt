@@ -1,13 +1,13 @@
 conf t
 object network *Name of each object before IP address*-192-168-0-0-24
  subnet 192.168.0.0 255.255.255.0
- desc *Description of each object* 2020/12/02 09:42
+ desc *Description of each object* 2020/12/02 09:48
 object-group network *Name of Object Group*
  network-object object *Name of each object before IP address*-192-168-0-0-24
 object network *Name of each object before IP address*-192-168-4-4-32
  host 192.168.4.4
- desc *Description of each object* 2020/12/02 09:42
+ desc *Description of each object* 2020/12/02 09:48
 object-group network *Name of Object Group*
  network-object object *Name of each object before IP address*-192-168-4-4-32
 object-group network *Name of Object Group*
- desc *Description for Object Group* 2020/12/02 09:42
+ desc *Description for Object Group* 2020/12/02 09:48
