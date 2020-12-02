@@ -2,25 +2,22 @@
 from datetime import datetime
 import csv
 import os
-from os import system
-from time import sleep
 from ipaddress import IPv4Network
 import convert2cidr
+import configparser
 
-##Define variables used throughout the script##
-#File containing list of networks
-networks_file = ("networks.csv")
-#File containing IPs of destination ASAs
-devices_file = ("devices.csv")
-#File containing final list of commands for ASA
-cmd_file = ("commands.txt")
-#ASA Parent Object Group Details
-asa_object_group_name = ("RAVPN_EXCLUDE_NETWORKS")
-asa_object_group_desc = ("This is the description of the object group")
-#ASA Object Name 
-asa_object_name_prefix = ("RAVPN_OBJECT_")
-#ASA Object description. Might break this out to the csv import in the future
-asa_object_desc = ("The is the description of the object name" ) 
+# ##Define variables used throughout the script##
+# #File containing list of networks
+# networks_file = ("networks.csv")
+# #File containing final list of commands for ASA
+# cmd_file = ("commands.txt")
+# #ASA Parent Object Group Details
+# asa_object_group_name = ("RAVPN_EXCLUDE_NETWORKS")
+# asa_object_group_desc = ("This is the description of the object group")
+# #ASA Object Name 
+# asa_object_name_prefix = ("RAVPN_OBJECT_")
+# #ASA Object description. Might break this out to the csv import in the future
+# asa_object_desc = ("The is the description of the object" ) 
 
 #Run convertocidr.py script
 convert2cidr.convert(networks_file)
@@ -43,6 +40,10 @@ else:
 if os.path.exists(cmd_file):
     os.remove(cmd_file)
 
+#Get timestamp to use in the commands
+now = datetime.now()
+now_str = now.strftime("%Y/%m/%d %H:%M")
+
 #Start adding commands
 open_cmd_file = open(cmd_file,"a")
 open_cmd_file.writelines("conf t\n")
@@ -55,13 +56,13 @@ for x in networks_list:
     # asa_object_desc = str(x[1])
     #print(network,netmask)
     if netmask == '255.255.255.255':
-        open_cmd_file.writelines("object network "+ asa_object_name + "\n host " + network + "\n desc " + asa_object_desc + "\n")
+        open_cmd_file.writelines("object network "+ asa_object_name + "\n host " + network + "\n desc " + asa_object_desc + " " + now_str + "\n")
     else:
-        open_cmd_file.writelines("object network "+ asa_object_name + "\n subnet " + network + " " + netmask + "\n desc " + asa_object_desc + "\n")
+        open_cmd_file.writelines("object network "+ asa_object_name + "\n subnet " + network + " " + netmask + "\n desc " + asa_object_desc + " " + now_str + "\n")
     open_cmd_file.writelines("object-group network " + asa_object_group_name + "\n network-object object " + asa_object_name + "\n")
 
 #Add description to the object group at the end
-open_cmd_file.writelines("object-group network " + asa_object_group_name + "\n desc " + asa_object_group_desc + "\n") 
+open_cmd_file.writelines("object-group network " + asa_object_group_name + "\n desc " + asa_object_group_desc + " " + now_str +  "\n") 
 #Close the command file
 open_cmd_file.close()
 print("Done!")
