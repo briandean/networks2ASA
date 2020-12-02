@@ -12,7 +12,7 @@ def convert(x):
             print(line.replace(',', ''), end='')
     with fileinput.FileInput(x, inplace=True, backup='.bak') as file:
         for line in file:
-            print(line.replace('255.255.255.255', ''), end='')
+            print(line.replace('255.255.255.255', '/32'), end='')
     with fileinput.FileInput(x, inplace=True, backup='.bak') as file:
         for line in file:
             print(line.replace('255.255.255.254', '/31'), end='')
