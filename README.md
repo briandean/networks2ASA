@@ -2,7 +2,7 @@ Networks2ASA
 2020/12/2
 Brian Dean
 brian@briandean.net
-
+--
 Script to convert a list of networks a file to Cisco ASA Objects and add each of those objects to an object group. Update the config.ini, add your list of networks one per line, and run networks2asa.py. Output of commands in the commands file.
 
 Change variables in config.ini to match your requirements.
