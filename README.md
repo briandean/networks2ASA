@@ -8,7 +8,7 @@ Script(s) to convert a list of networks in a file to the collection of CLI comma
 Change variables in config.ini to match your requirements:
 networks_file = Path of file containing source networks networks to add as ASA objects.
 cmd_file = Path of output file with ASA commands.
-asa_object_group_name = Name of ASA object group
+asa_object_group_name = Name of ASA object group.
 asa_object_group_desc = Description of the object group description with timestamp at the end.
 asa_object_name_prefix = Object names will have the asa_object_name_prefix variable in front of the "IP address-prefix length". Example: ip address of 192.168.1.1 would be named "asa_object_name_prefix-192-168-1-1-32".
 asa_object_desc = Description of each object with timestamp at the end.
