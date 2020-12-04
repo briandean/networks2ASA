@@ -3,18 +3,18 @@ Networks2ASA
 Brian Dean 
 brian@briandean.net 
 --
-Script to convert a list of networks a file to Cisco ASA Objects and add each of those objects to an object group. Update the config.ini, add your list of networks one per line, and run networks2asa.py. Output of commands in the commands file. Only subnet and host objects are supported with this script.
+Script(s) to convert a list of networks in a file to the collection of CLI commands for adding those networks to Cisco ASA objects and adds each of those objects to an object group. Provide your list of networks (one per line) in networks.csv, modify the config.ini to name your object and object group then run networks2asa.py. Output of commands are written to the commands file. Only subnet and host objects are supported with this script.
 
-Change variables in config.ini to match your requirements.
-networks_file = Path of file containing source networks networks to add to ASA as objects.
-cmd_file = Path of output file with ASA commands
+Change variables in config.ini to match your requirements:
+networks_file = Path of file containing source networks networks to add as ASA objects.
+cmd_file = Path of output file with ASA commands.
 asa_object_group_name = Name of ASA object group
-asa_object_group_desc = Description of the object group description with timestamp at the end
-asa_object_name_prefix = Object names will put the asa_object_name_prefix variable in front of the IP address-prefix length. Example: ip address of 192.168.1.1 would be named "asa_object_name_prefix-192-168-1-1-32".
+asa_object_group_desc = Description of the object group description with timestamp at the end.
+asa_object_name_prefix = Object names will have the asa_object_name_prefix variable in front of the "IP address-prefix length". Example: ip address of 192.168.1.1 would be named "asa_object_name_prefix-192-168-1-1-32".
 asa_object_desc = Description of each object with timestamp at the end.
 
 
-networks_file = Source list of networks to be added to the ASA. Networks should be one per line. They can be in either CIDR notation or "network + subnet mask" or "network,subnet mask". Host addresses can either be as the ip address alone, /32, or ip address + 255.255.255.255. MAKE SURE THERE ARE NO ABNORMAL CHARACTERS IN THE NETWORKS LIST!    
+networks_file = Source list of networks to be added to the ASA. Networks should be one per line. They can be in either CIDR notation or "network + subnet mask" or "network,subnet mask". Host addresses can either be as the ip address alone, /32, or ip address + 255.255.255.255. MAKE SURE THERE ARE NO OTHER TYPES OF CHARACTERS IN THE NETWORKS LIST!  
 Example valid networks file contents:  
 192.168.0.0/24  
 192.168.1.0 255.255.255.0  
