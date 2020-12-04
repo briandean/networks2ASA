@@ -14,7 +14,7 @@ asa_object_name_prefix = Object names will put the asa_object_name_prefix variab
 asa_object_desc = Description of each object with timestamp at the end.
 
 
-networks_file = Source list of networks to be added to the ASA. Networks should be one per line. They can be in either CIDR notation or "network + subnet mask" or "network,subnet mask". Host addresses can either be as the ip address alone, /32, or ip address + 255.255.255.255.  
+networks_file = Source list of networks to be added to the ASA. Networks should be one per line. They can be in either CIDR notation or "network + subnet mask" or "network,subnet mask". Host addresses can either be as the ip address alone, /32, or ip address + 255.255.255.255.  MAKE SURE THERE ARE NOT ABNORMAL CHARACTERS IN THIS FILE.
 Example valid networks file contents:  
 192.168.0.0/24  
 192.168.1.0 255.255.255.0  
