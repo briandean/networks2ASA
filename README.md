@@ -14,16 +14,16 @@ asa_object_name_prefix = Object names will put the asa_object_name_prefix variab
 asa_object_desc = Description of each object with timestamp at the end.
 
 
-networks_file = Source list of networks to be added to the ASA. Networks should be one per line. They can be in either CIDR notation or "network + subnet mask" or "network,subnet mask". Host addresses can either be as the ip address alone, /32, or ip address + 255.255.255.255. MAKE SURE THERE ARE NO ABNORMAL CHARACTERS IN THE NETWORKS LIST!  
+networks_file = Source list of networks to be added to the ASA. Networks should be one per line. They can be in either CIDR notation or "network + subnet mask" or "network,subnet mask". Host addresses can either be as the ip address alone, /32, or ip address + 255.255.255.255. MAKE SURE THERE ARE NO ABNORMAL CHARACTERS IN THE NETWORKS LIST!    
 Example valid networks file contents:  
-192.168.0.0/24
-192.168.1.0 255.255.255.0
-192.168.2.0,/24
-192.168.3.0,255.255.255.0
-192.168.4.1
-192.168.4.2,/32
-192.168.4.3,255.255.255.255
-192.168.4.4 255.255.255.255
+192.168.0.0/24  
+192.168.1.0 255.255.255.0  
+192.168.2.0,/24  
+192.168.3.0,255.255.255.0  
+192.168.4.1  
+192.168.4.2,/32  
+192.168.4.3,255.255.255.255  
+192.168.4.4 255.255.255.255  
 
 convert2cidr.py = Script to normalize the formatting of the networks in the networks_file. This will create a backup of the original networks file in the same directory as .bak. You do not need to run this script individually.
 
