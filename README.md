@@ -1,7 +1,7 @@
-Networks2ASA
-2020/12/2
-Brian Dean
-brian@briandean.net
+Networks2ASA 
+2020/12/2 
+Brian Dean 
+brian@briandean.net 
 --
 Script to convert a list of networks a file to Cisco ASA Objects and add each of those objects to an object group. Update the config.ini, add your list of networks one per line, and run networks2asa.py. Output of commands in the commands file. Only subnet and host objects are supported with this script.
 
@@ -29,18 +29,18 @@ convert2cidr.py = Script to normalize the formatting of the networks in the netw
 
 networks2asa.py = Main script to convert list of networks to ASA commands and output to commands file. Will also run the convert2cidr.py.
 
-commands file = File containing final commands to add networks as objects and add those objects to the object group on Cisco ASA
-Example output:
-conf t
-object network *Name of each object before IP address*-192-168-0-0-24
- subnet 192.168.0.0 255.255.255.0
- desc *Description of each object* 2020/12/02 09:42
-object-group network *Name of Object Group*
- network-object object *Name of each object before IP address*-192-168-0-0-24
-object network *Name of each object before IP address*-192-168-4-4-32
- host 192.168.4.4
- desc *Description of each object* 2020/12/02 09:42
-object-group network *Name of Object Group*
- network-object object *Name of each object before IP address*-192-168-4-4-32
-object-group network *Name of Object Group*
- desc *Description for Object Group* 2020/12/02 09:42
+commands file = File containing final commands to add networks as objects and add those objects to the object group on Cisco ASA  
+Example output:  
+conf t  
+object network *Name of each object before IP address*-192-168-0-0-24  
+ subnet 192.168.0.0 255.255.255.0  
+ desc *Description of each object* 2020/12/02 09:42  
+object-group network *Name of Object Group*  
+ network-object object *Name of each object before IP address*-192-168-0-0-24  
+object network *Name of each object before IP address*-192-168-4-4-32  
+ host 192.168.4.4  
+ desc *Description of each object* 2020/12/02 09:42  
+object-group network *Name of Object Group*  
+ network-object object *Name of each object before IP address*-192-168-4-4-32  
+object-group network *Name of Object Group*  
+ desc *Description for Object Group* 2020/12/02 09:42  
